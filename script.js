@@ -20,30 +20,44 @@ calculator.addEventListener("click", print);
 // make calculations work
 calculator.addEventListener("click", calculate);
 
+        var a = null;
+        var b = null;
+        var c = null;
+        var d = null;
+
     function calculate(e) {
-        console.log(result);
-        if (e.target && e.target.classList.contains("number") && result == 0) {
-            result = parseInt(e.target.textContent);
-        }
         if (e.target && e.target.id == "plus") {
-            result = parseInt(display.textContent);
+            a = parseInt(display.textContent);
             display.textContent = 0;
         }
         if (e.target && e.target.id == "minus") {
-            result = parseInt(display.textContent);
+            b = parseInt(display.textContent);
             display.textContent = 0;
         }
         if (e.target && e.target.id == "multiply") {
-            result = parseInt(display.textContent);
+             c = parseInt(display.textContent);
             display.textContent = 0;
         }
         if (e.target && e.target.id == "divide") {
-            result = parseInt(display.textContent);
+            d = parseInt(display.textContent);
             display.textContent = 0;
         }
         if (e.target && e.target.id == "equals") {
-            result = result + parseInt(display.textContent);
+            if (a !== null) {
+            result = a + parseInt(display.textContent);
+            } if (b !== null) {
+            result = b - parseInt(display.textContent);
+            } if (c !== null) {
+            result = c * parseInt(display.textContent);
+            } if (d !== null) {
+            result = d / parseInt(display.textContent);
+            }
             display.textContent = result;
+            result = 0;
+            a = null;
+            b = null;
+            c = null;
+            d = null;
         }
         if (e.target && e.target.id == "clear") {
             result = 0;
