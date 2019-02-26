@@ -11,33 +11,50 @@
 }
 h1 {  
     text-align: center;
-    font-size: 50px;
+    font-size: 3rem;
     font-family: monospace;
-    padding: 50px 10px;
+    padding: 3rem 0.625rem;
 }
 #screen {
     font-family: "Digital 7", sans-serif;
-    display: block;
     background-color: #FFFFFF;
     border: 5px solid #C33C54;
-    font-size: 60px;
-    width: 95%;
-    margin: 20px;
+    box-shadow: 2px 4px;
+    font-size: 3rem;
+    width: 100%;
+    margin: 1.25rem;
     text-align: right;
 }
 #calculator {
     background-color: #37718E;
-    padding: 20px;
-    width: 600px;
+    padding: 1.5rem;
+    width: 18rem;
     margin: auto;
     height: auto;
     align-items: center;
+    position: relative;
+}
+#calc {
+    background-color: #37718E; 
+    height: 13rem;
+}
+#numbers {
+    position: absolute;
+    left: 0;
+    width: 65%;
+}
+#calccolumn {
+    position: absolute;
+    right: 0;
+    bottom: 15px;
+    width: 40%;
+    
 }
 button {
     display: inline-block;
     border: none;
-    padding: 1rem 1.5rem;
-    margin: 0.5em;
+    padding: 0.3rem 0.75rem;
+    margin: 0.5rem;
     text-decoration: none;
     background: #254E70;
     color: #ffffff;
@@ -53,7 +70,7 @@ button {
 
 button:hover,
 button:focus {
-    background: #8EE3EF;
+    background: #C33C54;
 }
 
 button:focus {
@@ -64,3 +81,4 @@ button:focus {
 button:active {
     transform: scale(0.99);
 }
+

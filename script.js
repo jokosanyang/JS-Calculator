@@ -12,7 +12,7 @@ calculator.addEventListener("click", print);
         if (display.textContent == "0" && e.target && e.target.classList.contains("number")) {
             display.textContent = e.target.textContent;
         } 
-        else if (e.target && e.target.classList.contains("number")) {
+        else if (e.target && e.target.classList.contains("number") || e.target.id == ".") {
             display.textContent = display.textContent.concat("", e.target.textContent);
         }
     }
@@ -27,30 +27,30 @@ calculator.addEventListener("click", calculate);
 
     function calculate(e) {
         if (e.target && e.target.id == "plus") {
-            a = parseInt(display.textContent);
+            a = parseFloat(display.textContent);
             display.textContent = 0;
         }
         if (e.target && e.target.id == "minus") {
-            b = parseInt(display.textContent);
+            b = parseFloat(display.textContent);
             display.textContent = 0;
         }
         if (e.target && e.target.id == "multiply") {
-             c = parseInt(display.textContent);
+             c = parseFloat(display.textContent);
             display.textContent = 0;
         }
         if (e.target && e.target.id == "divide") {
-            d = parseInt(display.textContent);
+            d = parseFloat(display.textContent);
             display.textContent = 0;
         }
         if (e.target && e.target.id == "equals") {
             if (a !== null) {
-            result = a + parseInt(display.textContent);
+            result = a + parseFloat(display.textContent);
             } if (b !== null) {
-            result = b - parseInt(display.textContent);
+            result = b - parseFloat(display.textContent);
             } if (c !== null) {
-            result = c * parseInt(display.textContent);
+            result = c * parseFloat(display.textContent);
             } if (d !== null) {
-            result = d / parseInt(display.textContent);
+            result = d / parseFloat(display.textContent);
             }
             display.textContent = result;
             result = 0;
