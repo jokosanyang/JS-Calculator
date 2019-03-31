@@ -1,35 +1,33 @@
 // declare variables
-let display = document.getElementById("display");
-var calculator = document.getElementById("calc");
-var result = 0;
-var operator = "";
+const display = document.getElementById("display");
+const calculator = document.getElementById("calc");
+let result = 0;
+let operator = "";
 
 // make numbers appear in the display
-calculator.addEventListener("click", print);
-    
-    function print(e) {
-        if (e.target && e.target.classList.contains("number") && operator == "equals") {
+    const print = (e) => {
+        if (e.target.classList.contains("number") && operator == "equals") {
             display.textContent = e.target.textContent;
             operator = "";
         }
-        else if (display.textContent == "0" && e.target && e.target.classList.contains("number")) {
+        else if (display.textContent == "0" && e.target.classList.contains("number")) {
             display.textContent = e.target.textContent;
         } 
-        else if (e.target && e.target.classList.contains("number") || e.target.id == "decimal") {
+        else if (e.target.classList.contains("number") || e.target.id == "decimal") {
             display.textContent = display.textContent.concat("", e.target.textContent);
         }
     }
+calculator.addEventListener("click", print);
+    
 
 // make calculations work
-calculator.addEventListener("click", calculate);
-
-    function calculate(e) {
-        if (e.target && e.target.classList.contains("calculations")) {
+    const calculate = (e) => {
+        if (e.target.classList.contains("calculations")) {
             result = parseFloat(display.textContent);
             operator = e.target.id;
             display.textContent = 0;
         }
-        if (e.target && e.target.id == "equals") {
+        if (e.target.id == "equals") {
             if (operator == "plus") {
             result = result + parseFloat(display.textContent);
             } if (operator == "minus") {
@@ -43,9 +41,10 @@ calculator.addEventListener("click", calculate);
             result = 0;
             operator = "equals";
         }
-            if (e.target && e.target.id == "clear") {
+            if (e.target.id == "clear") {
             result = 0;
             display.textContent = result;
             operator = "";
         }
     }
+    calculator.addEventListener("click", calculate);
