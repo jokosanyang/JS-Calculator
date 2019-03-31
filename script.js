@@ -1,5 +1,5 @@
 // declare variables
-var display = document.getElementById("display");
+let display = document.getElementById("display");
 var calculator = document.getElementById("calc");
 var result = 0;
 var operator = "";
@@ -8,10 +8,14 @@ var operator = "";
 calculator.addEventListener("click", print);
     
     function print(e) {
-        if (display.textContent == "0" && e.target && e.target.classList.contains("number")) {
+        if (e.target && e.target.classList.contains("number") && operator == "equals") {
+            display.textContent = e.target.textContent;
+            operator = "";
+        }
+        else if (display.textContent == "0" && e.target && e.target.classList.contains("number")) {
             display.textContent = e.target.textContent;
         } 
-        else if (e.target && e.target.classList.contains("number") || e.target.id == ".") {
+        else if (e.target && e.target.classList.contains("number") || e.target.id == "decimal") {
             display.textContent = display.textContent.concat("", e.target.textContent);
         }
     }
@@ -37,7 +41,7 @@ calculator.addEventListener("click", calculate);
             }
             display.textContent = result;
             result = 0;
-            operator = "";
+            operator = "equals";
         }
             if (e.target && e.target.id == "clear") {
             result = 0;
