@@ -5,6 +5,7 @@ let result = 0;
 let operator = "";
 
 // make numbers appear in the display
+
     const print = (e) => {
         if (e.target.classList.contains("number") && operator == "equals") {
             display.textContent = e.target.textContent;
@@ -17,7 +18,7 @@ let operator = "";
             display.textContent = display.textContent.concat("", e.target.textContent);
         }
     }
-calculator.addEventListener("click", print);
+  calculator.addEventListener("click", print);
     
 
 // make calculations work
